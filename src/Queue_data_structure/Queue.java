@@ -36,7 +36,7 @@ public class Queue {
 	{
 		if(first == null)
 		{
-			throw new RuntimeException("Empty Queue.");
+			throw new RuntimeException("Empty Queue ( must push(int i) before pop() ).");
 		}
 		int data = first.data;
 		first = first.link; //set new first
@@ -48,13 +48,24 @@ public class Queue {
 		return data;
 	}
 	
+	public int getMin() {
+		Integer minimum = 2147483647;
+		if(first == null) {throw new RuntimeException("Empty Queue ( must push(int i_ before pop() ).");}
+		
+		
+		
+		return minimum;
+	}
+	
 	public static void main(String[] args) {
 		Queue queueTest = new Queue();
 		
-		int test = queueTest.pop();
 		queueTest.push(10);
 		queueTest.push(13);
 		queueTest.push(15);
+		
+		int minimum = queueTest.getMin();
+		System.out.printf("Minimum of the queue is: %d\n", minimum);
 		
 		int current = 0;
 		for(int i = 0; i < 3; i++) { //should output 101315
